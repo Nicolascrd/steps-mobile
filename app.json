@@ -37,7 +37,19 @@
     },
     "plugins": [
       "expo-router",
-      "expo-font",
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/Oswald-Regular.ttf",
+            "./assets/fonts/Oswald-Medium.ttf",
+            "./assets/fonts/Oswald-Light.ttf",
+            "./assets/fonts/Oswald-ExtraLight.ttf",
+            "./assets/fonts/Oswald-Bold.ttf",
+            "./assets/fonts/Oswald-SemiBold.ttf"
+          ]
+        }
+      ],
       "expo-health-connect",
       "expo-build-properties",
       "react-native-health-connect",

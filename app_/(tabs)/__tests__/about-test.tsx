@@ -1,4 +1,4 @@
-import AboutScreen from "@/app/(tabs)/about";
+import AboutScreen from "@/app_/(tabs)/about";
 import { render } from "@testing-library/react-native";
 
 describe("<AboutScreen />", () => {

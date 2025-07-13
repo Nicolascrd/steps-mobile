@@ -63,6 +63,15 @@
     <array>
       <string>$(PRODUCT_BUNDLE_IDENTIFIER).expo.index_route</string>
     </array>
+    <key>UIAppFonts</key>
+    <array>
+      <string>Oswald-Regular.ttf</string>
+      <string>Oswald-Medium.ttf</string>
+      <string>Oswald-Light.ttf</string>
+      <string>Oswald-ExtraLight.ttf</string>
+      <string>Oswald-Bold.ttf</string>
+      <string>Oswald-SemiBold.ttf</string>
+    </array>
     <key>UILaunchStoryboardName</key>
     <string>SplashScreen</string>
     <key>UIRequiredDeviceCapabilities</key>
