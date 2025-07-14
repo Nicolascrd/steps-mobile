@@ -2,6 +2,7 @@ import { Text, View } from "react-native";
 import styles from "../../styles/main";
 import Button from "@/components/Button";
 
+// eslint-disable-next-line import/no-unresolved
 import { testFunction } from "@/api/mobile/healthDataConnect";
 import { useCalendars } from "expo-localization";
 
