@@ -2,11 +2,12 @@ import { Text, View } from "react-native";
 import styles from "../../styles/main";
 import { useAuth } from "@/contexts/AuthContext";
 import { useEffect } from "react";
+import { API_URL } from "@/constants/urls";
 
 export default function AboutScreen() {
   const { token, isLoading } = useAuth();
   useEffect(() => {
-    fetch("http://192.168.1.88:3333/api/v1/login", {
+    fetch(API_URL + "/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

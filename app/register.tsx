@@ -4,6 +4,7 @@ import { Pressable, ScrollView, Text, TextInput, View } from "react-native";
 import { formPageStyles } from "../styles/formPagesStyles";
 import EnlistmentSummary from "@/components/EnlistmentSummary";
 import { Stage } from "@/types/register.t";
+import registerUser from "@/api/server/register";
 
 const USERNAME_REGEX = /^[a-zA-Z0-9_]{3,}$/;
 const FULL_NAME_REGEX = /^[a-zA-Z\s]{3,}$/;
@@ -38,12 +39,7 @@ export default function RegisterScreen() {
       "password:",
       password
     );
-    try {
-      // Simulate a registration API call
-      console.log("Registration successful!");
-    } catch (error) {
-      console.error("Registration failed:", error);
-    }
+    await registerUser(email, at, fullName, password);
   };
 
   let formPart: JSX.Element | null = null;

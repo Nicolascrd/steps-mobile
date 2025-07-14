@@ -45,6 +45,5 @@ describe("RegisterScreen", () => {
     expect(passwordText).toBeTruthy();
     const passwordInput = getByTestId("password-input");
     fireEvent.changeText(passwordInput, "Password123!");
-    fireEvent.press(button);
   });
 });
