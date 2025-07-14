@@ -5,6 +5,13 @@ import { formPageStyles } from "../styles/formPagesStyles";
 import EnlistmentSummary from "@/components/EnlistmentSummary";
 import { Stage } from "@/types/register.t";
 
+const USERNAME_REGEX = /^[a-zA-Z0-9_]{3,}$/;
+const FULL_NAME_REGEX = /^[a-zA-Z\s]{3,}$/;
+// eslint-disable-next-line no-useless-escape
+const PASSWORD_REGEX = /^[A-Za-z0-9!@#$%^&*()_+\-=\[\]{}:;,.<>/?]{8,}$/;
+
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 export default function RegisterScreen() {
   const [logoBackground] = useState<ImageSource>(
     require("../assets/images/image.png")
@@ -14,6 +21,11 @@ export default function RegisterScreen() {
   const [at, setAt] = useState("");
   const [fullName, setFullName] = useState("");
   const [password, setPassword] = useState("");
+
+  const emailError = !EMAIL_REGEX.test(email);
+  const atError = !USERNAME_REGEX.test(at);
+  const fullNameError = !FULL_NAME_REGEX.test(fullName);
+  const passwordError = !PASSWORD_REGEX.test(password);
 
   const submitRegistration = async () => {
     console.log(
@@ -41,13 +53,27 @@ export default function RegisterScreen() {
         <View style={formPageStyles.formContainer}>
           <Text style={formPageStyles.label}>Email</Text>
           <TextInput
+            accessibilityRole="text"
+            testID="email-input"
             onChangeText={setEmail}
             value={email}
             style={formPageStyles.input}
           />
           <View style={formPageStyles.buttonContainer}>
-            <Pressable onPress={() => setStage(Stage.at)}>
-              <Text style={formPageStyles.buttonText}>Submit</Text>
+            <Pressable
+              accessibilityRole="button"
+              onPress={() => setStage(Stage.at)}
+              disabled={emailError}
+            >
+              <Text
+                style={
+                  emailError
+                    ? formPageStyles.buttonTextDisabled
+                    : formPageStyles.buttonText
+                }
+              >
+                Submit
+              </Text>
             </Pressable>
           </View>
         </View>
@@ -56,15 +82,28 @@ export default function RegisterScreen() {
     case Stage.at:
       formPart = (
         <View style={formPageStyles.formContainer}>
-          <Text style={formPageStyles.label}>At</Text>
+          <Text style={formPageStyles.label}>Username</Text>
           <TextInput
             onChangeText={setAt}
             value={at}
             style={formPageStyles.input}
+            testID="at-input"
           />
           <View style={formPageStyles.buttonContainer}>
-            <Pressable onPress={() => setStage(Stage.fullName)}>
-              <Text style={formPageStyles.buttonText}>Submit</Text>
+            <Pressable
+              accessibilityRole="button"
+              onPress={() => setStage(Stage.fullName)}
+              disabled={atError}
+            >
+              <Text
+                style={
+                  atError
+                    ? formPageStyles.buttonTextDisabled
+                    : formPageStyles.buttonText
+                }
+              >
+                Submit
+              </Text>
             </Pressable>
           </View>
         </View>
@@ -78,10 +117,23 @@ export default function RegisterScreen() {
             onChangeText={setFullName}
             value={fullName}
             style={formPageStyles.input}
+            testID="full-name-input"
           />
           <View style={formPageStyles.buttonContainer}>
-            <Pressable onPress={() => setStage(Stage.password)}>
-              <Text style={formPageStyles.buttonText}>Submit</Text>
+            <Pressable
+              accessibilityRole="button"
+              onPress={() => setStage(Stage.password)}
+              disabled={fullNameError}
+            >
+              <Text
+                style={
+                  fullNameError
+                    ? formPageStyles.buttonTextDisabled
+                    : formPageStyles.buttonText
+                }
+              >
+                Submit
+              </Text>
             </Pressable>
           </View>
         </View>
@@ -95,11 +147,24 @@ export default function RegisterScreen() {
             onChangeText={setPassword}
             value={password}
             style={formPageStyles.input}
+            testID="password-input"
             secureTextEntry
           />
           <View style={formPageStyles.buttonContainer}>
-            <Pressable onPress={submitRegistration}>
-              <Text style={formPageStyles.buttonText}>Submit</Text>
+            <Pressable
+              accessibilityRole="button"
+              onPress={submitRegistration}
+              disabled={passwordError}
+            >
+              <Text
+                style={
+                  passwordError
+                    ? formPageStyles.buttonTextDisabled
+                    : formPageStyles.buttonText
+                }
+              >
+                Submit
+              </Text>
             </Pressable>
           </View>
         </View>

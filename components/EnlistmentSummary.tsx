@@ -26,6 +26,7 @@ export default function EnlistmentSummary({
             <TouchableOpacity
               style={{ display: "flex", flexDirection: "row" }}
               onPress={() => goToStage(Stage.email)}
+              accessibilityRole="button"
             >
               <Text style={styles.value}>{email}</Text>
               <Feather
@@ -45,6 +46,7 @@ export default function EnlistmentSummary({
             <TouchableOpacity
               style={{ display: "flex", flexDirection: "row" }}
               onPress={() => goToStage(Stage.at)}
+              accessibilityRole="button"
             >
               <Text style={styles.value}>{username}</Text>
               <Feather
@@ -64,6 +66,7 @@ export default function EnlistmentSummary({
             <TouchableOpacity
               style={{ display: "flex", flexDirection: "row" }}
               onPress={() => goToStage(Stage.fullName)}
+              accessibilityRole="button"
             >
               <Text style={styles.value}>{fullName}</Text>
               <Feather
