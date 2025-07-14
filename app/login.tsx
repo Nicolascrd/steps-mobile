@@ -2,7 +2,7 @@ import { Text, View, TextInput, Pressable, ScrollView } from "react-native";
 import { useAuth } from "@/contexts/AuthContext";
 import { useState } from "react";
 import { ImageBackground, ImageSource } from "expo-image";
-import { formPageStyles } from "./formPagesStyles";
+import { formPageStyles } from "../styles/formPagesStyles";
 
 export default function LoginScreen() {
   const { login } = useAuth();

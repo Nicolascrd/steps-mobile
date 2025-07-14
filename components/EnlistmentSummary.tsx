@@ -7,25 +7,14 @@ export default function EnlistmentSummary({
   username,
   email,
   stage,
+  goToStage,
 }: {
   fullName: string;
   username: string;
   email: string;
   stage: Stage;
+  goToStage: (stage: Stage) => void;
 }) {
-  const editEmail = () => {
-    console.log("Edit email pressed");
-    // Logic to handle email editing
-  };
-  const editUsername = () => {
-    console.log("Edit username pressed");
-    // Logic to handle email editing
-  };
-  const editFullName = () => {
-    console.log("Edit full name pressed");
-    // Logic to handle full name editing
-  };
-
   return (
     <View style={styles.container}>
       <Text style={styles.header}>RECRUIT PROFILE</Text>
@@ -36,10 +25,14 @@ export default function EnlistmentSummary({
             <Text style={styles.label}>Email:</Text>
             <TouchableOpacity
               style={{ display: "flex", flexDirection: "row" }}
-              onPress={editEmail}
+              onPress={() => goToStage(Stage.email)}
             >
               <Text style={styles.value}>{email}</Text>
-              <Feather name="edit-3" size={14} color="#FF912D"></Feather>
+              <Feather
+                name="edit-3"
+                size={14}
+                style={{ marginTop: 3, color: "#FF912D" }}
+              ></Feather>
             </TouchableOpacity>
           </View>
         </View>
@@ -51,10 +44,14 @@ export default function EnlistmentSummary({
             <Text style={styles.label}>Username:</Text>
             <TouchableOpacity
               style={{ display: "flex", flexDirection: "row" }}
-              onPress={editUsername}
+              onPress={() => goToStage(Stage.at)}
             >
               <Text style={styles.value}>{username}</Text>
-              <Feather name="edit-3" size={14} color="#FF912D"></Feather>
+              <Feather
+                name="edit-3"
+                size={14}
+                style={{ marginTop: 3, color: "#FF912D" }}
+              ></Feather>
             </TouchableOpacity>
           </View>
         </View>
@@ -66,10 +63,14 @@ export default function EnlistmentSummary({
             <Text style={styles.label}>Full Name:</Text>
             <TouchableOpacity
               style={{ display: "flex", flexDirection: "row" }}
-              onPress={editFullName}
+              onPress={() => goToStage(Stage.fullName)}
             >
               <Text style={styles.value}>{fullName}</Text>
-              <Feather name="edit-3" size={14} color="#FF912D"></Feather>
+              <Feather
+                name="edit-3"
+                size={14}
+                style={{ marginTop: 3, color: "#FF912D" }}
+              ></Feather>
             </TouchableOpacity>
           </View>
         </View>

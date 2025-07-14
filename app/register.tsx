@@ -1,7 +1,7 @@
 import { ImageBackground, ImageSource } from "expo-image";
 import { useState } from "react";
 import { Pressable, ScrollView, Text, TextInput, View } from "react-native";
-import { formPageStyles } from "./formPagesStyles";
+import { formPageStyles } from "../styles/formPagesStyles";
 import EnlistmentSummary from "@/components/EnlistmentSummary";
 import { Stage } from "@/types/register.t";
 
@@ -123,6 +123,7 @@ export default function RegisterScreen() {
             username={at}
             email={email}
             stage={stage}
+            goToStage={(newStage: Stage) => setStage(newStage)}
           ></EnlistmentSummary>
         )}
         {formPart}
